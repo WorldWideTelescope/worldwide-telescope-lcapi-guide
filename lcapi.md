@@ -159,37 +159,18 @@ The following table lists the properties that can be get or set on a layer (note
 | **AltType** | Enum | One of: **Depth, Altitude, SeaLevel, Terrain**. | Spreadsheet | SeaLevel |
 | **AltUnit** | Enum | One of: **Meters, Feet, Inches, Miles, Kilometers, AstronomicalUnits, LightYears, Parsecs, MegaParsecs.** | Spreadsheet | Meters for altitude and kilometers for depth. |
 | **Astronomical** | Boolean| True if the data is astronomical rather than terrestrial. If this is set to true the declination will be by default the Latitude column, and the right ascension the Longitude column. | All | False |
-| **BeginRange** | DateTime | Date and time of the first data entry in a time series,
-in one the formats (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" | Spreadsheet | Maximum system value |
+| **BeginRange** | DateTime | Date and time of the first data entry in a time series, in one the formats (month/day/year): <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000" | Spreadsheet | Maximum system value |
 | **CartesianCustomScale** | Double | Used to divide the Cartesian co-ordinate values to a custom scale. If this value was set to "0.01" and the scale to Meters, the custom scale would be "centimeters". | Spreadsheet | 1 |
 | **CartesianScale** | Enum | If the **CoordinatesType** is not **Spherical** then the co-ordinate system uses X,Y and Z values. One of: **Meters, Feet, Inches, Miles, Kilometers, AstronomicalUnits, LightYears, Parsecs, MegaParsecs, Custom**. | Spreadsheet | Meters |
 | **ColorMap** | Enum | One of: **Same_For_All, Group_by_Values.** | Spreadsheet | Same_For_All |
 | **ColorMapColumn** | Int | Column number containing the color map data. Columns are numbered from zero, -1 indicates there is no data for this. | Spreadsheet | -1 |
-| **ColorValue** | String | String containing ARGB value of the color, in the format:
-"ARGBColor:255:255:255:255". | All | White |
+| **ColorValue** | String | String containing ARGB value of the color, in the format: "ARGBColor:255:255:255:255". | All | White |
 | **CoordinatesType** | Enum | One of: **Spherical, Rectangular, Orbital**. **Spherical** applies when the reference frame is a sphere, and the coordinates will be Lat/Lng or RA/Dec. **Rectangular** applies if there are X,Y and Z coordinates. 0,0,0 in this case is the center of the reference frame. | Spreadsheet | Spherical |
 | **Decay** | Float | Decay rate of the visualization, in days, in the range 0.00025 to 4096. | Spreadsheet | 16 |
 | **Enabled** | Boolean | True if the layer is enabled. | All | True |
 | **EndDateColumn** | Int | Column containing the end date/time data. | Spreadsheet | -1 |
-| **EndRange** | DateTime | Date and time of the last data entry in a time series,
-in one the formats (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" | Spreadsheet | Minimum system value |
-| **EndTime** | DateTime | Date and time to end the visualizations, and return to the start time in the case of an auto loop.  This property is visible in the Lifetime dialog for a layer.
-Format (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" | All | Maximum system time. |
+| **EndRange** | DateTime | Date and time of the last data entry in a time series, in one the formats (month/day/year): <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| Spreadsheet | Minimum system value |
+| **EndTime** | DateTime | Date and time to end the visualizations, and return to the start time in the case of an auto loop.  This property is visible in the Lifetime dialog for a layer. Format (month/day/year): <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| All | Maximum system time. |
 | **GeometryColumn** | Int | Column containing the geometry data. | Spreadsheet | -1 |
 | **Heading** | Double | Heading angle  of the model in radians. | 3D Model | 0 |
 | **HyperlinkColumn** | Int | Column containing the hyperlink data. | Spreadsheet | -1 |
@@ -209,8 +190,7 @@ Format (month/day/year):
 | **Pitch** | Double | Pitch angle of the model in radians. | 3d Model | 0 |
 | **PlotType** | Enum | One of: **Gaussian, Point, PushPin**. | Spreadsheet | Gaussian |
 | **PointScaleType** | Enum | One of: **Linear**, **Power, Log, Constant, StellarMagnitude.** | Spreadsheet | Power |
-| **RaUnits** | Enum | When the longitude column is being used for RA in astronomical data.
-One of: **Hours**, **Degrees**. | Spreadsheet | Hours |
+| **RaUnits** | Enum | When the longitude column is being used for RA in astronomical data. One of: **Hours**, **Degrees**. | Spreadsheet | Hours |
 | **Roll** | Double | Roll angle of the model in radians. | 3D Model | 0 |
 | **Scale** | Vector3d | Scale of the model in x, y and z dimensions. Format: 1,1,1 | 3D Model | 1,1,1|
 | **ScaleFactor** | Float | Scale factor to apply to the magnitude of the event. | Spreadsheet | 1 |
@@ -218,12 +198,7 @@ One of: **Hours**, **Degrees**. | Spreadsheet | Hours |
 | **SizeColumn** | Int | Column containing the size (magnitude) data. | Spreadsheet | -1 |
 | **Smooth** | Boolean | True if the 3D Model should have its normals smoothed. | 3D Model | True |
 | **StartDateColumn** | Int | Column containing the start date/time data. | Spreadsheet | -1 |
-| **StartTime** | DateTime | Date and time to start the visualizations. This property is visible in the Lifetime dialog for the layer. Formats (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" | All | Minimum system time |
+| **StartTime** | DateTime | Date and time to start the visualizations. This property is visible in the Lifetime dialog for the layer. Formats (month/day/year): <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| All | Minimum system time |
 | **TimeSeries** | Boolean | True if the layer should be treated as time series data. | Spreadsheet | False |
 | **Translate** | Vector3d | Translation (movement offset) of the model in x, y and z dimensions, in units of the model size. Format: 1,1,1 | 3D Model | 0,0,0 |
 | **XAxisColumn** | Int | Column number for X data. | Spreadsheet | -1 |
@@ -269,10 +244,11 @@ If the call is not successful the following string may be included in the respon
 
 **Get altitude units**
 
-```html
+```cs
 WebClient client = new WebClient();
 string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=getprop&id={1}&propname={2}", getIP().ToString(), layerId, "AltUnit");
 ```
+
 **response**
 
 ```xml
@@ -485,14 +461,10 @@ The **group** command specifies that a layer group should be added.
 
 Layer groups are just an organizational aid when using the layer manager. The user will be able to collapse and expand groups in the Layer Manager, and have groups that are sub-sets of other groups.
 
-|
-
-
 | Required Parameters | Description |
 | :-- | :-- |
 | **&name** | A unique name for the layer group.|
-| **&frame** | The reference frame of the group. This can be a layer group created with the **group** command, or one of:
-**Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
+| **&frame** | The reference frame of the group. This can be a layer group created with the **group** command, or one of: <br> **Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
 
 
 #### Return Value
@@ -690,20 +662,14 @@ Note that parameter names are case-sensitive.
 
 | Required Parameters | Description |
 | :-- | :-- |
-| **&frame** | The reference frame of the group. This can be an existing layer group name, or one of:
-**Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
+| **&frame** | The reference frame of the group. This can be an existing layer group name, or one of: <br> **Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
 | **&filename** | The full path of the file to load. |
+
 | Optional Parameters | Description | Default Value|
 | :-- | :-- | :-- |
 | **&name** | A friendly name for the layer. | "New Layer" |
 | **&color** | ARBG hex value of the color to be used when rendering the events of the layer. | FFFFFFFF (white) |
-| **&startdate** | With time series data, the date and time to start the visualization for this layer. This could for example be slightly earlier than the date of the first event in the actual data. For example: ```html"1/1/2000 12:30:30 AM"```.
-Formats (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" | The System minimum date value |
+| **&startdate** | With time series data, the date and time to start the visualization for this layer. This could for example be slightly earlier than the date of the first event in the actual data. For example: ```"1/1/2000 12:30:30 AM"```. <br> Formats (month/day/year): <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| The System minimum date value |
 | **&enddate** | With time series data, the date and time to end the visualization for this layer. | The System maximum date value |
 | **&fadetype** | Fades the data visualization. One of: **In**, **Out**, **Both** or **None**. | None |
 | **&faderange** | Fade time in days. | Zero |
@@ -840,20 +806,14 @@ The **new** command will request that an entirely new layer be created, with the
 
 | Required Parameters | Description |
 | :-- | :-- |
-| **&frame** | The reference frame of the layer. This can be one of:
-**Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
+| **&frame** | The reference frame of the layer. This can be one of: <br> **Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
 
 | Optional Parameters| Description | Default Value |
 | :-- | :-- | :-- |
 | **&name** | A friendly name for the layer. | "New Layer" |
 | **&color** | ARBG hex value of the color to be used when rendering the events of the layer. | FFFFFFFF (white) |
-| **&startdate** | With time series data, the date and time to start the visualization for this layer. This could for example be slightly earlier than the date of the first event in the actual data. For example: ```html"1/1/2000 12:30:30 AM"```.
-Formats (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" | The System minimum date value |
+| **&startdate** | With time series data, the date and time to start the visualization for this layer. This could for example be slightly earlier than the date of the first event in the actual data. For example: ```html"1/1/2000 12:30:30 AM"```. <br> Formats (month/day/year):
+ <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| The System minimum date value |
 | **&enddate** | With time series data, the date and time to end the visualization for this layer. | The System maximum date value |
 | **&fadetype** | Fades the data visualization. One of: **In**, **Out**, **Both** or **None**. | None |
 | **&faderange** | Fade time in days. | Zero |
@@ -1305,8 +1265,8 @@ If the call is not successful the following string may be included in the respon
   if (s.Contains("Error"))
   {
       throw new Exception(s);
-  }|
-|
+  }
+```
 For an example of the use of this command in the sample application, see [flushBufferToWWT](#flushBufferToWWT).
 
 
@@ -1340,22 +1300,9 @@ The general parameters can be used with any of the commands.
 
 | Parameter | Description |
 | :-- | :-- |
-| **&datetime** | Sets the viewing clock to the given date and time, in UTC format, for example: ```html"1/1/2000 12:02:46 AM"```. This is the date and time that can be set through the **View** menu.
-Formats (month/day/year):
-"1/1/2010 11:00:00 PM"
-"1/1/2010 11:30 AM"
-"1/1/2010 11 am"
-"1/1/2000"
-"1/2000" |
+| **&datetime** | Sets the viewing clock to the given date and time, in UTC format, for example: ```html"1/1/2000 12:02:46 AM"```. This is the date and time that can be set through the **View** menu. <br> Formats (month/day/year): <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"|
 | **&timerate** | The accelerated time to render the visualization, as a multiple of 10. |
-| **&flyto** | Sets the position of the view camera. Requires five floating point numbers separated by commas: latitude, longitude, zoom level, rotation and angle.
-        *   Latitude is in decimal degrees, positive to the North.
-        *   Longitude is in decimal degrees, positive to the East.
-        *   Zoom level varies from 360 (the most distant view) to 0.00023 (the closest view).
-        *   Rotation is in radians, positive moves the camera to the left.
-        *   Angle is in radians, positive moves the camera forward.
-        Optionally there can be a sixth parameter containing the frame to change the view to, which can be one of:
-        **Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
+| **&flyto** | Sets the position of the view camera. Requires five floating point numbers separated by commas: latitude, longitude, zoom level, rotation and angle. <br> <ul><li>   Latitude is in decimal degrees, positive to the North. </li> <li> Longitude is in decimal degrees, positive to the East. </li> <li> Zoom level varies from 360 (the most distant view) to 0.00023 (the closest view).</li> <li> Rotation is in radians, positive moves the camera to the left.</li> <li> Angle is in radians, positive moves the camera forward.</li> </ul> <br> Optionally there can be a sixth parameter containing the frame to change the view to, which can be one of: <br> **Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
 | **&instant** | Used with the **&flyto** parameter, set this to **true** to specify that the camera should jump to the location, or **false** that the camera should smoothly pan and zoom to the location. |
 | **&autoloop** | True sets the layer manager to auto loop. |
 
