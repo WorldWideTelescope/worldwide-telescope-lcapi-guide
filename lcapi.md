@@ -154,6 +154,7 @@ The **getprop** command is used to retrieve a value of a single layer property.
 The following table lists the properties that can be get or set on a layer (note that the property names and Enum values are case-sensitive). Also refer to the Notes below the table.
 
 | Property | Type | Description | Layer Type | Default |
+| :-- | :-- | :-- | :-- | :-- |
 | **AltColumn** | Int | Column number containing the altitude/depth data. | Spreadsheet | -1 |
 | **AltType** | Enum | One of: **Depth, Altitude, SeaLevel, Terrain**. | Spreadsheet | SeaLevel |
 | **AltUnit** | Enum | One of: **Meters, Feet, Inches, Miles, Kilometers, AstronomicalUnits, LightYears, Parsecs, MegaParsecs.** | Spreadsheet | Meters for altitude and kilometers for depth. |
