@@ -1,26 +1,8 @@
-# WorldWide Telescope Layer Control API (LCAPI)
-
-This document describes how to write a software program to send data to WorldWide Telescope, using the Layer Control API (LCAPI). For a large amount of data the program might be a tool that reads data from a spreadsheet file, and then sends the appropriate fields of the data to WorldWide Telescope in appropriately sized buffers for visualization. For a smaller amount of data the entire file could be loaded in one go, or images or 3D models could be loaded. Time series data would typically be time-and-location dependent event data such as:
-
-*   Earthquakes
-*   Volcanic eruptions
-*   Disease outbreaks
-*   More general social or natural events and trends
-
-The time-series system does _not_ lend itself to data that varies either its location or has a complex intensity - such as weather systems, or forest fires - though it is possible a limited approach to this sort of data may be useful. The system does lend itself to events that occur over an extended period of time, given the ability to greatly accelerate simulated time, and also events that decay very rapidly (lightning) or quite slowly (diseases) given the ability to control the decay time of the rendered graphic. Although most examples are of time series events on the Earth, the events can be on any of the supported Solar System bodies, or simply the Sky.
-
-There are a number of constraints on the use of the LCAPI that should be understood before commencing with the design of the tool:
-
-*   The supported spreadsheet formats are comma or tab delimited files.
-*   The LCAPI is a feature of the Windows Client version of WorldWide Telescope, not the Web Client.
-*   The LCAPI provides event, image or model data specifically to the Layer Manager, not to any other component of WorldWide Telescope.
-
-
 ## Design Overview
 
 The Windows client version of WorldWide Telescope listens continuously, and without any setup process, for a certain format of communication on a particular port. The format of this communication is in the form of strings, that themselves are formatted in a specific way. An application may be quite short and only need a [**load**](#load) call, or perhaps just need the **[new](#new)** and **[update](#update)** commands**.** Typically a simple application will go through the following steps, _after_ WorldWide Telescope has been started:
 
-1.  Establish the IP address of the computer running WorldWide Telescope. If this is the same computer as the application use the [getIP](#getIP) utility, if not a utility will have to be written or acquired that establishes the remote IP address.
+1.  Establish the IP address of the computer running WorldWide Telescope. If this is the same computer as the application use the [getIP](#getip) utility, if not a utility will have to be written or acquired that establishes the remote IP address.
 2.  Initialize and open a data file, or files, from a selected source.
 3.  Initialize the connection with WorldWide Telescope with a [**new**](#new) or **[load](#load)** call, which will create a new layer within WorldWide Telescope, and return a layer Id number.
 4.  If the **[new](#new)** command is used:
@@ -43,14 +25,14 @@ The suggested development approach is first to get the sample application workin
 
 ## LCAPI Commands
 
-The following commands can be used to control layers from the application. Note that command names are _not_ case-sensitive, and that the [general parameters](#general_parameters) can be included along with any other command.
+The following commands can be used to control layers from the application. Note that command names are _not_ case-sensitive, and that the [general parameters](#general-parameters) can be included along with any other command.
 
 | Command |  Description |
 | :-- | :-- |
 | [**activate**](#activate) | Highlights the selected layer in the layer manager. |
 | **[delete](#delete)** | Specifies that a layer should be permanently deleted. |
-| [**getprop**](#getprop) | Used to retrieve a value of a single layer property. Remarks include the [Table of Properties](#Table_of_Properties). |
-| [**getprops**](#getprops) | Used to retrieve all the properties for a specified layer. Includes lists for [Spreadsheet](#Spreadsheet), [3d Model,](#3D_model) [Shapefile](#Shapefile) and [ImageSet](#ImageSet). |
+| [**getprop**](#getprop) | Used to retrieve a value of a single layer property. Remarks include the [Table of Properties](#table-of-properties). |
+| [**getprops**](#getprops) | Used to retrieve all the properties for a specified layer. Includes lists for [Spreadsheet](#spreadsheet), [3d Model,](#3d-model) [Shapefile](#shapefile) and [ImageSet](#imageSet). |
 | **[group](#group)** | Specifies that a layer group should be added. |
 | [**layerlist**](#layerlist) | Returns the structure of the layers and layer group names (in an XML document format) that are currently in the layer manager. |
 | [**load**](#load) | Specifies a data file, and and some optional parameters, to apply to a new layer. |
@@ -63,7 +45,7 @@ The following commands can be used to control layers from the application. Note 
 | [**uisettings**](#uisettings) | Used to change user interface settings, without altering the layer data. |
 | **[update](#update)** | Specifies that the data attached to this command should be added to the layer. |
 | [**version**](#version) | Returns the version number of the running version of the LCAPI. |
-| [general parameters](#general_parameters) | Parameters that can be applied to any of the commands. |
+| [general parameters](#general-parameters) | Parameters that can be applied to any of the commands. |
 
 
 ### activate
@@ -693,7 +675,7 @@ If the call is not successful the following string may be included in the respon
 
 #### Example Code
 
-Note that the example code uses **datetime**, one of the [general parameters](#general_parameters), to initiate the visualization of the data immediately.
+Note that the example code uses **datetime**, one of the [general parameters](#general-parameters), to initiate the visualization of the data immediately.
 
 ```js
 private void loadDatafile(string name, string frame, string filename, string datetime)
@@ -812,8 +794,7 @@ The **new** command will request that an entirely new layer be created, with the
 | :-- | :-- | :-- |
 | **&name** | A friendly name for the layer. | "New Layer" |
 | **&color** | ARBG hex value of the color to be used when rendering the events of the layer. | FFFFFFFF (white) |
-| **&startdate** | With time series data, the date and time to start the visualization for this layer. This could for example be slightly earlier than the date of the first event in the actual data. For example: ```html"1/1/2000 12:30:30 AM"```. <br> Formats (month/day/year):
- <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| The System minimum date value |
+| **&startdate** | With time series data, the date and time to start the visualization for this layer. This could for example be slightly earlier than the date of the first event in the actual data. For example: ```html"1/1/2000 12:30:30 AM"```. <br> Formats (month/day/year):  <br> "1/1/2010 11:00:00 PM" <br> "1/1/2010 11:30 AM" <br>  "1/1/2010 11 am" <br> "1/1/2000" <br> "1/2000"| The System minimum date value |
 | **&enddate** | With time series data, the date and time to end the visualization for this layer. | The System maximum date value |
 | **&fadetype** | Fades the data visualization. One of: **In**, **Out**, **Both** or **None**. | None |
 | **&faderange** | Fade time in days. | Zero |
@@ -848,7 +829,7 @@ Where _nnnn_ is the layer id number, which will be a GUID in string format. If a
 
 #### Example Code
 
-Note that the example code uses **datetime**, one of the [general parameters](#general_parameters), to initiate the visualization of the data immediately.
+Note that the example code uses **datetime**, one of the [general parameters](#general-parameters), to initiate the visualization of the data immediately.
 Required Parameters
 
 ```js
@@ -892,7 +873,7 @@ The **setprop** command is used to specify a value for a single layer property.
 | Required Parameters | Description |
 | :-- | :-- |
 | **&id** | Specifies the id number of the layer. |
-| **&propname** | Property name. Refer to the [table of properties](#Table_of_Properties) listed for the [**getprop**](#getprop) command. |
+| **&propname** | Property name. Refer to the [table of properties](#table-of-properties) listed for the [**getprop**](#getprop) command. |
 | **&propvalue** | Property value in string form. |
 
 #### Return Value
@@ -933,7 +914,7 @@ Note that the second string parameter to the **UploadString** method contains th
 
 This method can be used to set a single property, though the [**setprop**](#setprop) command is specifically designed for this.
 
-Refer to the [table of properties](#Table_of_Properties) listed for the [**getprop**](#getprop) command.
+Refer to the [table of properties](#table-of-properties) listed for the [**getprop**](#getprop) command.
 
 #### Return Value
 
@@ -1267,7 +1248,7 @@ If the call is not successful the following string may be included in the respon
       throw new Exception(s);
   }
 ```
-For an example of the use of this command in the sample application, see [flushBufferToWWT](#flushBufferToWWT).
+For an example of the use of this command in the sample application, see [flushBufferToWWT](#flushbuffertowwt).
 
 
 ### version
@@ -1290,7 +1271,7 @@ There are no specific errors returned if the call is not successful.
 
 #### Example Code
 
-Refer to the [getIP](#getIP) utility to see how to extract and check a version number.
+Refer to the [getIP](#getip) utility to see how to extract and check a version number.
 
 ### General Parameters
 
@@ -1325,8 +1306,8 @@ string response = client.UploadString(url, "");
 
 The following utilities are not part of the API, but should be useful in building an application.
 
-*   [**getIP**](#getIP)
-*   **[getUTCtime](#getUTCtime)**
+*   [**getIP**](#getip)
+*   **[getUTCtime](#getutctime)**
 
 
 ### getIP
