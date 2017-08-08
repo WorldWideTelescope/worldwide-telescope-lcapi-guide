@@ -1268,7 +1268,7 @@ There are no specific errors returned if the call is not successful.
 
 #### Example Code
 
-Refer to the [getIP](#getip) utility to see how to extract and check a version number.
+Refer to the [getIP](utilities.md#getip) utility to see how to extract and check a version number.
 {% endmethod %}
 
 {% method -%}
