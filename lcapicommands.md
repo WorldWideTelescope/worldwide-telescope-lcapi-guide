@@ -1285,6 +1285,7 @@ The general parameters can be used with any of the commands.
 | **&instant** | Used with the **&flyto** parameter, set this to **true** to specify that the camera should jump to the location, or **false** that the camera should smoothly pan and zoom to the location. |
 | **&autoloop** | True sets the layer manager to auto loop. |
 
+{% sample lang="html" -%}
 #### Example Code
 
 ##### Fly to a location
@@ -1299,3 +1300,4 @@ WebClient client = new WebClient();
 string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=state&flyto={1}&instant={2}", getIP().ToString(), flyString, richInstant.Text);
 string response = client.UploadString(url, "");
 ```
+{% endmethod %}
