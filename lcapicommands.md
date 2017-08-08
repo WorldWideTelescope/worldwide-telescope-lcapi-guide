@@ -112,6 +112,50 @@ The **getprop** command is used to retrieve a value of a single layer property.
 | **&id** | Specifies the id number of the layer. |
 | **&propname** | Property name, one from the table below. |
 
+
+{% sample lang="html" -%}
+#### Return Value
+
+If the call is successful the response will contain the following string:
+```html
+<Status>Success</Status><Layer _propertyName_="_propertyValue_"</Layer></LayerApi>
+```
+Where _propertyName_ is the property name requested, and _propertyValue_ is the value returned. For example:
+
+##### Get properties
+
+```html
+<LayerApi><Status>Success</Status><Layer AltType="Depth"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer AltColumn="3"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer Astronomical="False"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer BeginRange="1/9/2009 11:44:38 AM"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer EndRange="9/9/2009 11:13:52 PM"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer Decay="16"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer Name="EarthQuakes2009"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer FadeSpan="00:00:00"</Layer></LayerApi>
+<LayerApi><Status>Success</Status><Layer MarkerIndex="-1"</Layer></LayerApi>
+```
+If the call is not successful the following string may be included in the response, or other errors may be returned:
+
+```html
+<Status>Error - Invalid parameter</Status>
+```
+
+#### Example Code
+
+**Get altitude units**
+
+```cs
+WebClient client = new WebClient();
+string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=getprop&id={1}&propname={2}", getIP().ToString(), layerId, "AltUnit");
+```
+
+**response**
+
+```xml
+<?xml version="1.0" encoding="utf-8"?><LayerApi><Status>Success</Status><Layer AltUnit="Kilometers"</Layer></LayerApi>
+```
+
 #### Table of Properties
 
 The following table lists the properties that can be get or set on a layer (note that the property names and Enum values are case-sensitive). Also refer to the Notes below the table.
@@ -175,49 +219,6 @@ The following table lists the properties that can be get or set on a layer (note
 
 *   Columns are numbered from zero. A value of -1 for any column entry indicates that there is no data of that type.
 *   AM and PM in times: The time 1/1/2000 12:00:00 AM is equivalent to midnight on the previous night - so is one second after 12/31/1999 23:59:59\. If the time was set to PM rather than AM then 12:00:00 references noon.
-
-{% sample lang="html" -%}
-#### Return Value
-
-If the call is successful the response will contain the following string:
-```html
-<Status>Success</Status><Layer _propertyName_="_propertyValue_"</Layer></LayerApi>
-```
-Where _propertyName_ is the property name requested, and _propertyValue_ is the value returned. For example:
-
-##### Get properties
-
-```html
-<LayerApi><Status>Success</Status><Layer AltType="Depth"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer AltColumn="3"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer Astronomical="False"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer BeginRange="1/9/2009 11:44:38 AM"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer EndRange="9/9/2009 11:13:52 PM"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer Decay="16"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer Name="EarthQuakes2009"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer FadeSpan="00:00:00"</Layer></LayerApi>
-<LayerApi><Status>Success</Status><Layer MarkerIndex="-1"</Layer></LayerApi>
-```
-If the call is not successful the following string may be included in the response, or other errors may be returned:
-
-```html
-<Status>Error - Invalid parameter</Status>
-```
-
-#### Example Code
-
-**Get altitude units**
-
-```cs
-WebClient client = new WebClient();
-string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=getprop&id={1}&propname={2}", getIP().ToString(), layerId, "AltUnit");
-```
-
-**response**
-
-```xml
-<?xml version="1.0" encoding="utf-8"?><LayerApi><Status>Success</Status><Layer AltUnit="Kilometers"</Layer></LayerApi>
-```
 
 {% endmethod %}
 
