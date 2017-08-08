@@ -250,8 +250,7 @@ namespace Quakes
             string name = Path.GetFileNameWithoutExtension(richFilename.Text);
             string rate = listBox1.SelectedItem.ToString();
             string frame = listBox2.SelectedItem.ToString();
-            string color = buttonColor.BackColor.ToArgb().ToString("X8"<font size="2">);```
-
+            string color = buttonColor.BackColor.ToArgb().ToString("X8"<font size="2">);
             string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=new&datetime={1}&timerate={2}&name={3}&frame={4}&color={5}",  getIP().ToString(), startDate, rate, name, frame, color);
             // field string below is delimited by tabs, not spaces
             string response = client.UploadString(url, "TIME    LAT    LON    DEPTH    MAG");
