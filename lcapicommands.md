@@ -8,7 +8,7 @@ The following commands can be used to control layers from the application. Note 
 | [**activate**](#activate) | Highlights the selected layer in the layer manager. |
 | **[delete](#delete)** | Specifies that a layer should be permanently deleted. |
 | [**getprop**](#getprop) | Used to retrieve a value of a single layer property. Remarks include the [Table of Properties](#table-of-properties). |
-| [**getprops**](#getprops) | Used to retrieve all the properties for a specified layer. Includes lists for [Spreadsheet](#spreadsheet), [3d Model,](#3d-model) [Shapefile](#shapefile) and [ImageSet](#imageSet). |
+| [**getprops**](#getprops) | Used to retrieve all the properties for a specified layer. Includes lists for [Spreadsheet](#spreadsheet), [3d Model,](#3d-model) [Shapefile](#shapefile) and [ImageSet](#imageset). |
 | **[group](#group)** | Specifies that a layer group should be added. |
 | [**layerlist**](#layerlist) | Returns the structure of the layers and layer group names (in an XML document format) that are currently in the layer manager. |
 | [**load**](#load) | Specifies a data file, and and some optional parameters, to apply to a new layer. |
@@ -853,7 +853,7 @@ Required Parameters
    //
 ```
 
-For an example of the use of this command in the sample application, see [initWWTLayer](#initWWTLayer).
+For an example of the use of this command in the sample application, see [initWWTLayer](sampleapplication.md#sample-program#).
 {% endmethod %}
 
 {% method -%}
@@ -1244,7 +1244,7 @@ If the call is not successful the following string may be included in the respon
       throw new Exception(s);
   }
 ```
-For an example of the use of this command in the sample application, see [flushBufferToWWT](#flushbuffertowwt).
+For an example of the use of this command in the sample application, see [flushBufferToWWT](sampleapplication.md#sample-program).
 
 {% endmethod %}
 
