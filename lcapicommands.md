@@ -155,6 +155,7 @@ string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=getprop&id={1}&
 ```xml
 <?xml version="1.0" encoding="utf-8"?><LayerApi><Status>Success</Status><Layer AltUnit="Kilometers"</Layer></LayerApi>
 ```
+{% endmethod %}
 
 #### Table of Properties
 
@@ -220,7 +221,6 @@ The following table lists the properties that can be get or set on a layer (note
 *   Columns are numbered from zero. A value of -1 for any column entry indicates that there is no data of that type.
 *   AM and PM in times: The time 1/1/2000 12:00:00 AM is equivalent to midnight on the previous night - so is one second after 12/31/1999 23:59:59\. If the time was set to PM rather than AM then 12:00:00 references noon.
 
-{% endmethod %}
 
 {% method -%}
 ### getprops
