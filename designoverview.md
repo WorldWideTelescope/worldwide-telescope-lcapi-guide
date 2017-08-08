@@ -15,9 +15,7 @@ The Windows client version of WorldWide Telescope listens continuously, and with
 7.  Close down.
 
 A more complex application may initialize several layers, or a layer group, within WorldWide Telescope, or may transmit the data under user control - enabling the user to have some choice over which data is rendered, the speed and time of the simulation, and other similar controls.
-{% endmethod %}
 
-{% method -%}
 ### Development Environment
 
 The samples and examples described in this document have been developed using Microsoft Visual Studio (2008 or 2010) and the .NET framework, and written in C#.
@@ -63,9 +61,6 @@ The **activate** layer command will highlight the selected layer in the layer ma
 
 {% sample lang="html" -%}{% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -94,9 +89,6 @@ All sub-components of the layer will also be deleted.
 
 {% sample lang="html" -%}{% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -207,10 +199,9 @@ The following table lists the properties that can be get or set on a layer (note
 
 *   Columns are numbered from zero. A value of -1 for any column entry indicates that there is no data of that type.
 *   AM and PM in times: The time 1/1/2000 12:00:00 AM is equivalent to midnight on the previous night - so is one second after 12/31/1999 23:59:59\. If the time was set to PM rather than AM then 12:00:00 references noon.
+
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
 
 If the call is successful the response will contain the following string:
 ```html
@@ -268,9 +259,6 @@ Refer to the [table of properties](#table-of-properties) listed for the [**getpr
 | **&id** | Specifies the id number of the layer. |
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 If the call is successful the response string will contain the following string:
 
 ```html
@@ -471,9 +459,6 @@ Layer groups are just an organizational aid when using the layer manager. The us
 
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -529,9 +514,6 @@ The **layerlist** command returns the structure of the layers and layer group na
 | **&layersonly** | True indicates that only layers, and not reference frames or group names, should be returned. | False |
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 If the call is successful a string will be returned that is an XML document. Refer to the **Example** **Code** for the format and contents of the document.
 
 If the call is not successful the following string may be included in the response, or other errors may be returned:
@@ -687,9 +669,6 @@ Note that parameter names are case-sensitive.
 
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response string:
 
 ```html
@@ -750,9 +729,6 @@ The **mode** command changes the view to one of **Earth**, **Planet**, **Sky**, 
 This command does not take any parameters.
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -794,9 +770,6 @@ One move parameter must be supplied, **&move=_nnnn_**, where _nnnn_ is one of th
 | **Finder** | Currently unimplemented. |
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -859,9 +832,6 @@ The second string parameter to **UploadString** should contain a comma or tab de
 | **Z** | Z co-ordinate. |
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response string:
 
 ```html
@@ -922,9 +892,6 @@ The **setprop** command is used to specify a value for a single layer property.
 | **&propvalue** | Property value in string form. |
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 If the call is successful, then the response will contain the string:
 
 ```html
@@ -966,9 +933,6 @@ This method can be used to set a single property, though the [**setprop**](#setp
 Refer to the [table of properties](#table-of-properties) listed for the [**getprop**](#getprop) command.
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 If the call is successful, then the response will contain the string:
 
 ```html
@@ -1005,9 +969,6 @@ The **state** command requests some details of the current view.
 This command does not take any parameters. The details returned vary slightly depending on the view mode, and include the current view mode, latitude (or declination) in decimal degrees, longitude (or right ascension) in decimal degrees, zoom factor (0 to 360), angle in radians, rotation in radians, current UTC time, time rate, reference frame, a view token, and zoom text.
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 If the call is successful the following string will be returned:
 
 ```html
@@ -1208,9 +1169,6 @@ The **uisettings** command is used to change user interface settings, without al
 This command does not perform any action other than that of changing of the user interface settings.
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 If the call is successful, then the response will contain the string:
 
 ```html
@@ -1255,9 +1213,6 @@ The **update** command will request that data for a layer be updated, with the f
 The second string parameter to **UploadString** should contain a comma or tab delimited string containing the data in a form that matches the heading names of the columns in the layer provided in the **[new](#new)** command.
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -1325,9 +1280,6 @@ The **version** command returns the version number of the running version of the
 The version number should be used in an application to ensure that the LCAPI features used are supported by the version of the LCAPI running on the client computer.
 {% sample lang="html" -%}
 #### Return Value
-{% method -%}
-###
-
 The following string will be included in the response if the call is successful (the version number will be more recent than the one shown below) :
 
 ```html
