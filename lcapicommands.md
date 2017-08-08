@@ -853,7 +853,7 @@ Required Parameters
    //
 ```
 
-For an example of the use of this command in the sample application, see [initWWTLayer](sampleapplication.md#sample-program#).
+For an example of the use of this command in the sample application, see [initWWTLayer](sampleapplication.md#sample-program).
 {% endmethod %}
 
 {% method -%}
