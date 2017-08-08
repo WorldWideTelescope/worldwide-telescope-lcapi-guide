@@ -830,6 +830,7 @@ The second string parameter to **UploadString** should contain a comma or tab de
 | **X** | X co-ordinate, if a Rectangular co-ordinate system is being used. |
 | **Y** | Y co-ordinate.|
 | **Z** | Z co-ordinate. |
+
 {% sample lang="html" -%}
 #### Return Value
 The following string will be included in the response string:
@@ -1339,6 +1340,7 @@ If the LCAPI application and WorldWide Telescope are running on the same compute
 
 The **getIP** function extracts each IP address in turn, then calls the **CheckForWWTWebServer** function to check that WorldWide Telescope is both running at the given address and is recent enough that the LCAPI is supported.
 
+{% sample lang="cs" -%}
 ##### Get IP address
 
 ```cs
@@ -1397,6 +1399,7 @@ The **getIP** function extracts each IP address in turn, then calls the **CheckF
 
 With time series data care should be taken with the timings given in the data file. To convert local times to the recommended UTC time the following function could be used. Note that the local time is taken from the computer System time in the example below, so you may need to add some functionality to support local times that are not the same as your computer System time.
 
+{% sample lang="cs" -%}
 ```cs
  //
  // Convert a string time to the correct format
@@ -1408,7 +1411,7 @@ With time series data care should be taken with the timings given in the data fi
      return s;
  }
 ```
-
+{% endmethod %}
 ## Sample Application
 
 The following sample application loads earthquake data from a CSV file, sends it in buffers of up to 100 events, and displays it as a time series in WorldWide Telescope.
