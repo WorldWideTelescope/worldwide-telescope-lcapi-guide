@@ -1,3 +1,4 @@
+
 ## LCAPI Commands
 
 The following commands can be used to control layers from the application. Note that command names are _not_ case-sensitive, and that the [general parameters](#general-parameters) can be included along with any other command.
@@ -23,6 +24,7 @@ The following commands can be used to control layers from the application. Note 
 | [general parameters](#general-parameters) | Parameters that can be applied to any of the commands. |
 
 
+{% method -%}
 ### activate
 
 The **activate** layer command will highlight the selected layer in the layer manager.
@@ -33,8 +35,8 @@ The **activate** layer command will highlight the selected layer in the layer ma
 | :-- | :-- |
 | **&id** | Specifies the id number of the layer. |
 
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -46,7 +48,9 @@ If the call is not successful the following string may be included in the respon
 ```html
 <Status>Error - Invalid layer ID</Status>
 ```
+{% endmethod %}
 
+{% method -%}
 ### delete
 
 The **delete** command specifies that a layer should be permanently deleted.
@@ -59,8 +63,8 @@ All sub-components of the layer will also be deleted.
 | :-- | :-- |
 | **&id** | Specifies the id number of the layer. |
 
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -94,7 +98,9 @@ WebClient client = new WebClient();
         throw new Exception(s);
     }
 ```
+{% endmethod %}
 
+{% method -%}
 ### getprop
 
 The **getprop** command is used to retrieve a value of a single layer property.
@@ -170,6 +176,7 @@ The following table lists the properties that can be get or set on a layer (note
 *   Columns are numbered from zero. A value of -1 for any column entry indicates that there is no data of that type.
 *   AM and PM in times: The time 1/1/2000 12:00:00 AM is equivalent to midnight on the previous night - so is one second after 12/31/1999 23:59:59\. If the time was set to PM rather than AM then 12:00:00 references noon.
 
+{% sample lang="html" -%}
 #### Return Value
 
 If the call is successful the response will contain the following string:
@@ -212,7 +219,9 @@ string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=getprop&id={1}&
 <?xml version="1.0" encoding="utf-8"?><LayerApi><Status>Success</Status><Layer AltUnit="Kilometers"</Layer></LayerApi>
 ```
 
+{% endmethod %}
 
+{% method -%}
 ### getprops
 
 The **getprops** command is used to retrieve all the properties for a specified layer.
@@ -224,9 +233,8 @@ Refer to the [table of properties](#table-of-properties) listed for the [**getpr
 | Required Parameters | Description |
 | :-- | :-- |
 | **&id** | Specifies the id number of the layer. |
-
+{% sample lang="html" -%}
 #### Return Value
-
 If the call is successful the response string will contain the following string:
 
 ```html
@@ -409,7 +417,9 @@ The following example gets all the properties from any of the different types of
    Astronomical=\"False\" />
 </LayerApi>
 ```
+{% endmethod %}
 
+{% method -%}
 ### group
 
 The **group** command specifies that a layer group should be added.
@@ -423,9 +433,8 @@ Layer groups are just an organizational aid when using the layer manager. The us
 | **&name** | A unique name for the layer group.|
 | **&frame** | The reference frame of the group. This can be a layer group created with the **group** command, or one of: <br> **Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, Io, Ganymede, Callisto, Europa, Sun, ISS.** |
 
-
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -467,7 +476,9 @@ If the call is not successful the following string may be included in the respon
       }
   }
 ```
+{% endmethod %}
 
+{% method -%}
 ### layerlist
 
 The **layerlist** command returns the structure of the layers and layer group names (in an XML document format) that are currently in the layer manager.
@@ -477,9 +488,8 @@ The **layerlist** command returns the structure of the layers and layer group na
 |  Optional Parameter | Description | Default Value |
 | :-- | :-- | :-- |
 | **&layersonly** | True indicates that only layers, and not reference frames or group names, should be returned. | False |
-
-#### Return value
-
+{% sample lang="html" -%}
+#### Return Value
 If the call is successful a string will be returned that is an XML document. Refer to the **Example** **Code** for the format and contents of the document.
 
 If the call is not successful the following string may be included in the response, or other errors may be returned:
@@ -604,7 +614,9 @@ private void getLayerlist(string layersonly)
   </LayerList>
 </LayerApi>
 ```
+{% endmethod %}
 
+{% method -%}
 ### load
 
 The **load** command specifies a data file, and and some optional parameters, to apply to a new layer.
@@ -631,9 +643,8 @@ Note that parameter names are case-sensitive.
 | **&fadetype** | Fades the data visualization. One of: **In**, **Out**, **Both** or **None**. | None |
 | **&faderange** | Fade time in days. | Zero |
 
-
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response string:
 
 ```html
@@ -682,7 +693,9 @@ getIP().ToString(), frame, filename, name, datetime);
     }
 }
 ```
+{% endmethod %}
 
+{% method -%}
 ### mode
 
 The **mode** command changes the view to one of **Earth**, **Planet**, **Sky**, **Panorama**, **SolarSystem**.
@@ -690,9 +703,8 @@ The **mode** command changes the view to one of **Earth**, **Planet**, **Sky**, 
 #### Remarks
 
 This command does not take any parameters.
-
-#### Return value
-
+{% sample lang="html" -%}
+#### Return Value
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -708,7 +720,9 @@ WebClient client = new WebClient();
 string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=mode&lookat={1}", getIP().ToString(), "SolarSystem");
 string response = client.UploadString(url, "");
 ```
+{% endmethod %}
 
+{% method -%}
 ### move
 
 The **move** command changes the view depending on the supplied parameter.
@@ -730,9 +744,8 @@ One move parameter must be supplied, **&move=_nnnn_**, where _nnnn_ is one of th
 | **TiltUp** | Angle the view up 0.2 of one radian. |
 | **TiltDown** | Angle the view down 0.2 of one radian. |
 | **Finder** | Currently unimplemented. |
-
-#### Return value
-
+{% sample lang="html" -%}
+#### Return Value
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -752,7 +765,9 @@ WebClient client = new WebClient();
 string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=move&move={1}", getIP().ToString(), "ZoomIn");
 string response = client.UploadString(url, "");
 ```
+{% endmethod %}
 
+{% method -%}
 ### new
 
 The **new** command specifies that a new layer should be created.
@@ -792,8 +807,8 @@ The second string parameter to **UploadString** should contain a comma or tab de
 | **Y** | Y co-ordinate.|
 | **Z** | Z co-ordinate. |
 
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response string:
 
 ```html
@@ -838,7 +853,9 @@ Required Parameters
 ```
 
 For an example of the use of this command in the sample application, see [initWWTLayer](#initWWTLayer).
+{% endmethod %}
 
+{% method -%}
 ### setprop
 
 The **setprop** command is used to specify a value for a single layer property.
@@ -850,9 +867,8 @@ The **setprop** command is used to specify a value for a single layer property.
 | **&id** | Specifies the id number of the layer. |
 | **&propname** | Property name. Refer to the [table of properties](#table-of-properties) listed for the [**getprop**](#getprop) command. |
 | **&propvalue** | Property value in string form. |
-
+{% sample lang="html" -%}
 #### Return Value
-
 If the call is successful, then the response will contain the string:
 
 ```html
@@ -874,7 +890,9 @@ If the call is not successful the following string may be included in the respon
  string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=setprop&id={1}&propname={2}&propvalue={3}", getIP().ToString(), layerId,"Opacity", "0.5");
  string response = client.UploadString(url, "");
 ```
+{% endmethod %}
 
+{% method -%}
 ### setprops
 
 The **setprops** command is used to specify multiple properties for a layer.
@@ -890,9 +908,8 @@ Note that the second string parameter to the **UploadString** method contains th
 This method can be used to set a single property, though the [**setprop**](#setprop) command is specifically designed for this.
 
 Refer to the [table of properties](#table-of-properties) listed for the [**getprop**](#getprop) command.
-
+{% sample lang="html" -%}
 #### Return Value
-
 If the call is successful, then the response will contain the string:
 
 ```html
@@ -917,7 +934,9 @@ WebClient client = new WebClient();
 string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=setprops&id={1}", getIP().ToString(), layerId);
 string response = client.UploadString(url, propertyXML);
 ```
+{% endmethod %}
 
+{% method -%}
 ### state
 
 The **state** command requests some details of the current view.
@@ -925,9 +944,8 @@ The **state** command requests some details of the current view.
 #### Remarks
 
 This command does not take any parameters. The details returned vary slightly depending on the view mode, and include the current view mode, latitude (or declination) in decimal degrees, longitude (or right ascension) in decimal degrees, zoom factor (0 to 360), angle in radians, rotation in radians, current UTC time, time rate, reference frame, a view token, and zoom text.
-
+{% sample lang="html" -%}
 #### Return Value
-
 If the call is successful the following string will be returned:
 
 ```html
@@ -1054,7 +1072,9 @@ private void getState()
    zoomText=\"38636 km\">
 </ViewState>
 ```
+{% endmethod %}
 
+{% method -%}
 ### uisettings
 
 The **uisettings** command is used to change user interface settings, without altering the layer data. Note that the spelling errors in the names of the properties must be matched.
@@ -1124,9 +1144,8 @@ The **uisettings** command is used to change user interface settings, without al
 #### Remarks
 
 This command does not perform any action other than that of changing of the user interface settings.
-
+{% sample lang="html" -%}
 #### Return Value
-
 If the call is successful, then the response will contain the string:
 
 ```html
@@ -1145,7 +1164,9 @@ WebClient client = new WebClient();
 string  url = string.Format("http://{0}:5050/layerApi.aspx?cmd=uisettings&ShowConstellationFigures=True", getIP().ToString());
 string response = client.UploadString(url, "");
 ```
+{% endmethod %}
 
+{% method -%}
 ### update
 
 The **update** command specifies that the data attached to this command should be added to the layer.
@@ -1167,9 +1188,8 @@ The **update** command will request that data for a layer be updated, with the f
 | **&show** | Set to **true** to show the layer, **false** to hide it. True and false are not case-sensitive. | True |
 
 The second string parameter to **UploadString** should contain a comma or tab delimited string containing the data in a form that matches the heading names of the columns in the layer provided in the **[new](#new)** command.
-
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response if the call is successful:
 
 ```html
@@ -1225,7 +1245,9 @@ If the call is not successful the following string may be included in the respon
 ```
 For an example of the use of this command in the sample application, see [flushBufferToWWT](#flushbuffertowwt).
 
+{% endmethod %}
 
+{% method -%}
 ### version
 
 The **version** command returns the version number of the running version of the LCAPI.
@@ -1233,9 +1255,8 @@ The **version** command returns the version number of the running version of the
 #### Remarks
 
 The version number should be used in an application to ensure that the LCAPI features used are supported by the version of the LCAPI running on the client computer.
-
+{% sample lang="html" -%}
 #### Return Value
-
 The following string will be included in the response if the call is successful (the version number will be more recent than the one shown below) :
 
 ```html
@@ -1247,7 +1268,9 @@ There are no specific errors returned if the call is not successful.
 #### Example Code
 
 Refer to the [getIP](#getip) utility to see how to extract and check a version number.
+{% endmethod %}
 
+{% method -%}
 ### General Parameters
 
 The general parameters can be used with any of the commands.

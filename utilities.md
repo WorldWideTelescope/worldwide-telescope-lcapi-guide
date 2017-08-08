@@ -5,13 +5,14 @@ The following utilities are not part of the API, but should be useful in buildin
 *   [**getIP**](#getip)
 *   **[getUTCtime](#getutctime)**
 
-
+{% method -%}
 ### getIP
 
 If the LCAPI application and WorldWide Telescope are running on the same computer, you can use the following utility to extract the IP address.
 
 The **getIP** function extracts each IP address in turn, then calls the **CheckForWWTWebServer** function to check that WorldWide Telescope is both running at the given address and is recent enough that the LCAPI is supported.
 
+{% sample lang="cs" -%}
 ##### Get IP address
 
 ```cs
@@ -63,11 +64,15 @@ The **getIP** function extracts each IP address in turn, then calls the **CheckF
             return false;
         }
 ```
+{% endmethod %}
+
+{% method -%}
 
 ### getUTCtime
 
 With time series data care should be taken with the timings given in the data file. To convert local times to the recommended UTC time the following function could be used. Note that the local time is taken from the computer System time in the example below, so you may need to add some functionality to support local times that are not the same as your computer System time.
 
+{% sample lang="cs" -%}
 ```cs
  //
  // Convert a string time to the correct format
@@ -79,3 +84,4 @@ With time series data care should be taken with the timings given in the data fi
      return s;
  }
 ```
+{% endmethod %}
