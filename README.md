@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/aasworldwidetelescope/WWT/_apis/build/status/WorldWideTelescope.worldwide-telescope-lcapi-guide?branchName=master)](https://dev.azure.com/aasworldwidetelescope/WWT/_build/latest?definitionId=12&branchName=master)
+
 # WWT Layer Control API Guide: Source Code
 
 This repository contains the source code for the [WWT Layer Control API Guide].
