@@ -1,0 +1,7 @@
+base_url = "//docs.worldwidetelescope.org/lcapi-guide/1/"
+title = "WWT Layer Control API Guide"
+description = "Controlling the WWT Windows application with the LCAPI."
+theme = "wwtguide"
+
+[extra]
+github_base = "//github.com/WorldWideTelescope/worldwide-telescope-lcapi-guide"

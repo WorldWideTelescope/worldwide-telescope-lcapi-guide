@@ -1,4 +1,7 @@
-## Design Overview
++++
+title = "LCAPI Design Overview"
+weight = 100
++++
 
 The Windows client version of WorldWide Telescope listens continuously, and without any setup process, for a certain format of communication on a particular port. The format of this communication is in the form of strings, that themselves are formatted in a specific way. An application may be quite short and only need a [**load**](lcapicommands.md#load) call, or perhaps just need the **[new](lcapicommands.md#new)** and **[update](lcapicommands.md#update)** commands**.** Typically a simple application will go through the following steps, _after_ WorldWide Telescope has been started:
 

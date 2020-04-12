@@ -1,23 +1,72 @@
-# WorldWide Telescope Layer Control API \(LCAPI\)
+# WWT Layer Control API Guide: Source Code
 
-This document describes how to write a software program to send data to WorldWide Telescope, using the Layer Control API \(LCAPI\). For a large amount of data the program might be a tool that reads data from a spreadsheet file, and then sends the appropriate fields of the data to WorldWide Telescope in appropriately sized buffers for visualization. For a smaller amount of data the entire file could be loaded in one go, or images or 3D models could be loaded. Time series data would typically be time-and-location dependent event data such as:
+This repository contains the source code for the [WWT Layer Control API Guide].
+The `master` branch of this repo gets published here:
 
-* Earthquakes
-* Volcanic eruptions
-* Disease outbreaks
-* More general social or natural events and trends
+### https://docs.worldwidetelescope.org/lcapi-guide/1/
 
-The time-series system does _not_ lend itself to data that varies either its location or has a complex intensity - such as weather systems, or forest fires - though it is possible a limited approach to this sort of data may be useful. The system does lend itself to events that occur over an extended period of time, given the ability to greatly accelerate simulated time, and also events that decay very rapidly \(lightning\) or quite slowly \(diseases\) given the ability to control the decay time of the rendered graphic. Although most examples are of time series events on the Earth, the events can be on any of the supported Solar System bodies, or simply the Sky.
+[WWT Layer Control API Guide]: https://docs.worldwidetelescope.org/lcapi-guide/1/
 
-There are a number of constraints on the use of the LCAPI that should be understood before commencing with the design of the tool:
-
-* The supported spreadsheet formats are comma or tab delimited files.
-* The LCAPI is a feature of the Windows Client version of WorldWide Telescope, not the Web Client.
-* The LCAPI provides event, image or model data specifically to the Layer Manager, not to any other component of WorldWide Telescope.
+If you’re just interested in the documentation itself, you should go to that
+website. If you’re interested in *contributing* to this documentation, you’ve
+come to the right place!
 
 
+## Quick Start for the Initiated
 
-**What it can do:**In addition to using the layer manager interactively, you can use scripting and programming languages to send commands and data into WWT from your own code driving the visualization of data in WWT. You can write code that can read data from a database, or create it mathematically and send it to WWT to render. In addition almost all of WWT functionality can be controller through the LCAPI. This means you can create control mechanisms for automated or interactive control of WWT through your own hardware and software.  A good example of the use of the LCAPI is the ADS All-Sky Survey as seen in WorldWide Telescope, at[ adsass.org/wwt/](http://www.adsass.org/wwt/).
+The guide is a static site written in [CommonMark Markdown] and processed
+with [Zola]. Zola is distributed as a single executable so it is ridiculously
+[easy to install][install-zola].
 
-**Skills Required:**You need to be familiar with the programing language or your choice and get the LCAPI documentation and learn how to use HTTP request to send and receive data from WWT. There is also a library called_Narwhal_that provides a .NET wrapper and high level programming features for those who use .NET. Any language that can call HTTP web services can control WWT, and a Python interface has already been implemented, as pyWWT, \(see [www.jzuhone.com/pywwt](http://www.jzuhone.com/pywwt)\).
+This repository is themed by referencing [zola-wwtguide] as a submodule, so
+upon first checkout you’ll have to run:
 
+```
+git submodule update --init
+```
+
+Once everything is set up, all you have to do is run
+
+```
+zola serve
+```
+
+to build the site and serve it locally for testing. The command `zola check`
+will check the build and verify that outgoing links are valid. Zola has
+[lots of documentation][zola-docs].
+
+[CommonMark Markdown]: https://commonmark.org/
+[Zola]: https://getzola.org/
+[install-zola]: https://www.getzola.org/documentation/getting-started/installation/
+[zola-wwtguide]: https://github.com/WorldWideTelescope/zola-wwtguide
+[zola-docs]: https://www.getzola.org/documentation/getting-started/overview/
+
+Merges to `master` will be published automatically using WWT’s continuous
+deployment infrastructure.
+
+
+## Contributing
+
+Contributions are welcome! If you’re new to the project, please see the
+[WWT Contributors’ Guide] and the [WWT Code of Conduct]. We operate with a
+standard [fork-and-pull] model.
+
+[WWT Contributors’ Guide]: https://worldwidetelescope.github.io/contributing/
+[WWT Code of Conduct]: https://worldwidetelescope.github.io/code-of-conduct/
+[fork-and-pull]: https://help.github.com/en/articles/about-collaborative-development-models
+
+
+## Acknowledgments
+
+The AAS WorldWide Telescope system is a [.NET Foundation] project managed by
+the non-profit [American Astronomical Society] (AAS). Work on WWT has been
+supported by the AAS, the US [National Science Foundation] (grants [1550701]
+and [1642446]), the [Gordon and Betty Moore Foundation], and [Microsoft].
+
+[.NET Foundation]: https://dotnetfoundation.org/
+[American Astronomical Society]: https://aas.org/
+[National Science Foundation]: https://www.nsf.gov/
+[1550701]: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1550701
+[1642446]: https://www.nsf.gov/awardsearch/showAward?AWD_ID=1642446
+[Gordon and Betty Moore Foundation]: https://www.moore.org/
+[Microsoft]: https://www.microsoft.com/

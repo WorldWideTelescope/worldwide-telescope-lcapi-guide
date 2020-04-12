@@ -1,5 +1,7 @@
-
-## LCAPI Commands
++++
+title = "LCAPI Commands"
+weight = 200
++++
 
 The following commands can be used to control layers from the application. Note that command names are _not_ case-sensitive, and that the [general parameters](#general-parameters) can be included along with any other command.
 

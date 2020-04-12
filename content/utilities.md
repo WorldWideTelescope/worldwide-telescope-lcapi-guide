@@ -1,4 +1,7 @@
-## Utilities
++++
+title = "LCAPI Utilities"
+weight = 300
++++
 
 The following utilities are not part of the API, but should be useful in building an application.
 
