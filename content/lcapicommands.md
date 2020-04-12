@@ -823,7 +823,7 @@ if (layerId.Length != 36)
 ```
 
 For an example of the use of this command in the sample application, see
-[initWWTLayer](@/sampleapplication.md#sample-program).
+[initWWTLayer](@/sampleapplication/index.md#sample-program).
 
 ---
 
@@ -1180,7 +1180,8 @@ if (s.Contains("Error"))
 }
 ```
 
-For an example of the use of this command in the sample application, see [flushBufferToWWT](@/sampleapplication.md#sample-program).
+For an example of the use of this command in the sample application, see
+[flushBufferToWWT](@/sampleapplication/index.md#sample-program).
 
 ---
 

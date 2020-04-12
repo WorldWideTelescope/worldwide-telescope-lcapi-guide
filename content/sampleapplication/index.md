@@ -3,13 +3,15 @@ title = "Sample LCAPI Application"
 weight = 500
 +++
 
-The following sample application loads earthquake data from a CSV file, sends it in buffers of up to 100 events, and displays it as a time series in WorldWide Telescope.
+The following sample application loads earthquake data from a CSV file, sends
+it in buffers of up to 100 events, and displays it as a time series in
+WorldWide Telescope.
 
-![](//wwtweb.blob.core.windows.net/docs/images/LCAPI_sample.jpg)
-![](//wwtweb.blob.core.windows.net/docs/images/LCAPI_quakes.jpg)
+![](lcapi_sample.jpg)
+![](lcapi_quakes.jpg)
 
 
-### Sample program
+# Sample program
 
 ```cs
 using System;
@@ -17,16 +19,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-//
-// Added References
-//
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 
 //
@@ -81,7 +79,7 @@ namespace Quakes
 
             try
             {
-                initWWTLayer();                             
+                initWWTLayer();
 
                 StreamReader sr = new StreamReader(richFilename.Text);
 
@@ -166,18 +164,14 @@ namespace Quakes
             {
                 if (words[i].IndexOf("Time", StringComparison.OrdinalIgnoreCase) != -1)
                     timeSlot = i;
-                else
-                    if (words[i].IndexOf("Lat", StringComparison.OrdinalIgnoreCase) != -1)
-                        latSlot = i;
-                    else
-                        if (words[i].IndexOf("Lon", StringComparison.OrdinalIgnoreCase) != -1)
-                            lonSlot = i;
-                        else
-                            if (words[i].IndexOf("Depth", StringComparison.OrdinalIgnoreCase) != -1)
-                                depSlot = i;
-                            else
-                                if (words[i].IndexOf("Mag", StringComparison.OrdinalIgnoreCase) != -1)
-                                    magSlot = i;
+                else if (words[i].IndexOf("Lat", StringComparison.OrdinalIgnoreCase) != -1)
+                    latSlot = i;
+                else if (words[i].IndexOf("Lon", StringComparison.OrdinalIgnoreCase) != -1)
+                    lonSlot = i;
+                else if (words[i].IndexOf("Depth", StringComparison.OrdinalIgnoreCase) != -1)
+                    depSlot = i;
+                else if (words[i].IndexOf("Mag", StringComparison.OrdinalIgnoreCase) != -1)
+                    magSlot = i;
             }
 
             //
@@ -189,7 +183,13 @@ namespace Quakes
             //
             // Record a successful reading of the headings
             //
-            addMessage("Time = " + timeSlot.ToString() + " Lat = " + latSlot.ToString() + " Lon = " + lonSlot.ToString() + " Depth = " + depSlot.ToString() + " Mag = " + magSlot.ToString());
+            addMessage(
+              "Time = " + timeSlot.ToString() +
+              " Lat = " + latSlot.ToString() +
+              " Lon = " + lonSlot.ToString() +
+              " Depth = " + depSlot.ToString() +
+              " Mag = " + magSlot.ToString()
+            );
 
             //
             // Extract the start time from the data file by reading line 1
@@ -202,7 +202,7 @@ namespace Quakes
             //
             // Record a successful reading of the start
             //
-            addMessage("Start time = " + startDate);     
+            addMessage("Start time = " + startDate);
 
             return startDate;
         }
@@ -254,7 +254,10 @@ namespace Quakes
             string rate = listBox1.SelectedItem.ToString();
             string frame = listBox2.SelectedItem.ToString();
             string color = buttonColor.BackColor.ToArgb().ToString("X8"<font size="2">);
-            string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=new&datetime={1}&timerate={2}&name={3}&frame={4}&color={5}",  getIP().ToString(), startDate, rate, name, frame, color);
+            string url = string.Format(
+              "http://{0}:5050/layerApi.aspx?cmd=new&datetime={1}&timerate={2}&name={3}&frame={4}&color={5}",
+              getIP().ToString(), startDate, rate, name, frame, color
+            );
             // field string below is delimited by tabs, not spaces
             string response = client.UploadString(url, "TIME    LAT    LON    DEPTH    MAG");
             XmlDocument doc = new XmlDocument();
@@ -309,9 +312,15 @@ namespace Quakes
         private bool CheckForWWTWebServer(IPAddress address)
         {
             WebClient client = new WebClient();
+
             try
             {
-                string version = client.DownloadString(string.Format("http://{0}:5050/layerapi.aspx?cmd=version", address.ToString()));
+                string version = client.DownloadString(
+                  string.Format(
+                    "http://{0}:5050/layerapi.aspx?cmd=version",
+                    address.ToString()
+                  )
+                );
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(version);
                 XmlNode node = doc["LayerApi"];
@@ -364,7 +373,10 @@ namespace Quakes
                 //
                 WebClient client = new WebClient();
 
-                string url = string.Format("http://{0}:5050/layerApi.aspx?cmd=update&id={1}", getIP().ToString(), layerId);
+                string url = string.Format(
+                  "http://{0}:5050/layerApi.aspx?cmd=update&id={1}",
+                  getIP().ToString(), layerId
+                );
                 string response = client.UploadString(url, lineBuffer);
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(response);
@@ -394,7 +406,4 @@ namespace Quakes
         }
     }
 }
-//
-// End
-//
 ```
