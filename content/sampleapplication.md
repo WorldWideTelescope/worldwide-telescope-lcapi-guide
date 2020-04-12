@@ -1,6 +1,6 @@
 +++
 title = "Sample LCAPI Application"
-weight = 400
+weight = 500
 +++
 
 The following sample application loads earthquake data from a CSV file, sends it in buffers of up to 100 events, and displays it as a time series in WorldWide Telescope.
