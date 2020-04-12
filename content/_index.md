@@ -11,7 +11,7 @@ AAS WorldWide Telescope Windows client using its Layer Control API (LCAPI).
 The LCAPI interface can only control the WWT Windows application, which means
 that it is best suited to creating high-end custom experiences for planetarium
 or museum environments. For less specialized applications, such as
-visualizating research data in WWT, check out the <a
+visualizing research data in WWT, check out the <a
 href="https://pywwt.readthedocs.io/">pywwt</a> Python package.
 {% end %}
 
