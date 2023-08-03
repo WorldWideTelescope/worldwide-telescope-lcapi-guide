@@ -147,9 +147,6 @@ Might receive the following response:
 The **getprops** command is used to retrieve all the properties for a
 specified layer.
 
-Refer to the [table of properties](#table-of-properties) listed for the
-[**getprop**](#getprop) command.
-
 | Required Parameters | Description |
 | :-- | :-- |
 | *id* | Specifies the id number of the layer. |
